@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    background-color:#ffffff;
+    font-family: 'trebuchet ms', sans-serif;
+    height: 100%;}
+  :root {
+    --purple: #622C66;
+    --biege: #EBB49C;
+  }
+  
+  #logo {
+      display: block;
+      margin: 50px auto;
+
+      img {
+        background-position: center;
+        width: 100px;
+      }
+    }
+
+.content {
+    margin-top: 10px;
+    display: flex;
+    justify-content:center;
+    padding: 20px;
+}
+
+.description,
+.menu {
+    margin-left: 50px;
+    width: 45%;
+}
+.description {
+    max-width: 800px;
+}
+
+
+.description h2,
+.menu h2 {
+    text-align: center;
+    font-weight: 900;
+    background-color: #622C66;
+    color: #EBB49C;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 15px;
+}
+
+.menu img {
+  max-width: 100%;
+  min-width: 400px;
+  width: 48%;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 25px;
+  float: left;
+}
+
+.timings {
+    margin-top: 20px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.rating .stars {
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.comment-box {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-box textarea {
+    padding: 10px;
+    background-color: #dddddd;
+    border-color: transparent;
+    border-radius: 25px;
+    resize: vertical;
+    height: 200px;
+}
+
+.comment-box button {
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #622C66;
+    color: #EBB49C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rest {
+    width: 400px;
+    display: block;
+    margin: 0px auto;
+}
+
+.timing{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    width:300px;
+    float:left;
+}
+.text {
+    margin-top: 35px;
+    font-family: 'trebuchet ms', sans-serif;
+    font-size: 15;
+    font-weight: 600;
+    color:#3f2642;}
+
+h1 {
+        font-family: 'trebuchet ms', sans-serif;
+        font-size: 25px;
+        font-weight: 900;
+        color:#622C66;
+}
+
+  
+  footer {
+    position:static;
+    bottom: 0;
+    width: 100%;
+    font-family: 'trebuchet ms', sans-serif;
+    font-size: large;
+    padding: 30px;
+    text-align: center;
+    background-color: #622C66;
+    color: #ffffff;
+    box-shadow: 0px 2px 20px var(--purple);
+  }
+  
+  footer a {
+    color: #622C66;
+    text-decoration: none;
+    padding: 15px 40px;
+  }
+  
+  footer a:hover {
+    color: #FFF;
+    text-decoration: none;
+  }
+
+
+/*                 rating              */
+
+
+  .rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+  }
+  
+  .rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+  }
+  
+  .rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+  }
+  
+  .rate:not(:checked)>label:before {
+    content: '★ ';
+  }
+  
+  .rate>input:checked~label {
+    color: #622C66;
+  }
+  
+  .rate:not(:checked)>label:hover,
+  .rate:not(:checked)>label:hover~label {
+    color: #622C66;
+  }
+  
+  .rate>input:checked+label:hover,
+  .rate>input:checked+label:hover~label,
+  .rate>input:checked~label:hover,
+  .rate>input:checked~label:hover~label,
+  .rate>label:hover~input:checked~label {
+    color: #622C66;
+  }
+
+  /*                 rating  finished             */
+
+  .box {
+    width: 140px;
+    height: auto;
+    float: left;
+    transition: .5s linear;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 0 5px;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  
+  .box:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+  }
+  
+  .box:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+  }
+  
+  .box:hover {
+    box-shadow: 0 5px 15px var(--biege);
+  }
+  
+  .box:hover:before {
+    border-color: var(--purple);
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+  }
+  
+  .box:hover:after {
+    border-color: var(--purple);
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+  }
+  
+  button {
+    margin-top: 20px;
+    color: var(--purple);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .upButton{color: white;}

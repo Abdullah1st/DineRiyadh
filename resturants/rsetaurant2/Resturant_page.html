@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scotts</title>
+    <link type="text/css" href="../../style/resturantStyle.css" rel="stylesheet">
+    <style type="text/css">
+        header {
+            background-color: transparent;
+            display: flex;
+            box-shadow: 0px 2px 30px rgba(255, 255, 255, 0);
+            border-bottom: 6px solid rgba(255, 255, 255, 0);
+
+            #logo {
+                display: block;
+                margin: 50px auto;
+
+                img {
+                    width: 100px;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+
+        .head {
+            height: 500px;
+            background: url("b3.jpg") no-repeat center center;
+            background-size: cover;
+            align-items: center;
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="head">
+        <header>
+            <a href="../../html/FrontEnd/index.html" id="logo">
+                <img src="../../logo/icon.png" />
+            </a>
+        </header>
+        <img class="rest" src="Scotts-Logo2.png">
+    </div>
+    <div class="content">
+        <div class="description">
+            <h2>Description</h2>
+            <p>
+                A mainstay of London’s elite, Scott’s roots lie in the old oyster warehouse founded by John Scott in
+                1851.
+                Known as The Private Room, Scott’s serves a seasonal, exclusive menu based on its famous seafood
+                history.
+            <div class="timings">
+                <h3>Timings</h3>
+                <p><i>Opening times are subject to change*</i></p>
+                <p>Weekdays: 6PM - 12AM</p>
+                <p>Friday - Saturday: 1PM - 12AM</p>
+            </div>
+            <form method="post" action="../../php/ResturantRate.php">
+                <div class="rating">
+                    <span><strong>Rate Us</strong></span>
+                    <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                </div>
+                <div class="comment-box">
+                    <textarea name="commentBox" placeholder="Leave your comment here..."></textarea>
+                    <button name="resturantName">Send</button>
+                </div>
+            </form>
+        </div>
+        <div class="menu">
+            <h2>Menu</h2>
+            <img src="scotts-menu.jpg" alt="Menu Image">
+            <img src="scotts-menu2.jpg" alt="Menu Image">
+        </div>
+    </div>
+    <footer>
+        <p>
+            &copy; 2024 / IMAMU / CCIS / IT390 <sup>TM</sup>
+        </p>
+        <button onclick="toTop()">
+            <span class="box upButton">
+                UP
+            </span>
+        </button>
+    </footer>
+
+    </div>
+    <script>
+        function goTo(order) {
+            window.open(`../../resturants/rsetaurant${order}/Resturant_page.html`, "_blank")
+        }
+
+        function toTop() {
+            window.open('#top', '_self')
+        }
+    </script>
+
+
+</body>
+</body>
+
+</html>
