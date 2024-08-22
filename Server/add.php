@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   //if not exist, inject the item
   if (!($isExist )) {
-    $inserted_at = date('Y-m-d h:i:s A', time() + 3600);
+    $inserted_at = date('Y-m-d h:i:s A', time() - (3600 * 4));
     $query = "INSERT INTO item (name, description, logo, inserted_at)
       VALUES ('$itemName', '$itemDescription', '$itemLogo', '$inserted_at')";
       try {

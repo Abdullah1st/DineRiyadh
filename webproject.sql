@@ -4,14 +4,16 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 CREATE TABLE administrators (
-  'username' varchar(20), -- PRIMARY NOT NULL
+  'id' int(3), -- PRIMARY NOT NULL
+  'username' varchar(20), -- NOT NULL
   'password' varchar(64)  -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 -----------------------------------------------------------------
 CREATE TABLE resturant (
-  'name' varchar(100), -- PRIMARY NOT NULL
+  'id' int(3), -- PRIMARY NOT NULL
+  'name' varchar(100), -- NOT NULL
   'description' varchar(2000), -- NOT NULL
   'logo' varchar(2000) -- NOT NULL
 ) ENGINE=InnoDB
@@ -30,7 +32,7 @@ CREATE TABLE adminCommentsBody (
   'body' varchar(2000), -- NOT NULL
                     -- FOREIGN KEY("username")
 ) ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
+DEFAULT CHARSET=utf8mb4oDB
 COLLATE=utf8mb4_unicode_ci;
 -----------------------------------------------------------------
 
@@ -50,7 +52,8 @@ COLLATE=utf8mb4_unicode_ci;
 CREATE TABLE messagesContent (
   'messageID' int(3), -- PRIMARY NOT NULL
   'customerID' int(3), -- FOREIGN KEY NOT NULL
-  'messageContent' varchar(2000) -- NOT NULL
+  'messageContent' varchar(2000), -- NOT NULL
+  'inserted_at' (23) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
