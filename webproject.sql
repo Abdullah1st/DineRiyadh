@@ -4,42 +4,53 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 CREATE TABLE administrators (
-  'username' varchar(20) PRIMARY NOT NULL,
-  'password' varchar(64) NOT NULL
+  'username' varchar(20), -- PRIMARY NOT NULL
+  'password' varchar(64)  -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
-
+-----------------------------------------------------------------
 CREATE TABLE resturant (
-  'name' varchar(100) PRIMARY NOT NULL,
-  'description' varchar(2000) NOT NULL,
-  'logo' varchar(2000) NOT NULL
+  'name' varchar(100), -- PRIMARY NOT NULL
+  'description' varchar(2000), -- NOT NULL
+  'logo' varchar(2000) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
-
-
+-----------------------------------------------------------------
 CREATE TABLE adminComments (
-  'username' varchar(100) PRIMARY NOT NULL,
-  'msgsNum' int(3) NOT NULL,
-  FOREIGN KEY("username")
+  'username' varchar(100), -- PRIMARY NOT NULL
+  'msgsNum' int(3), -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
-
+------
 CREATE TABLE adminCommentsBody (
-  'username' varchar(100) PRIMARY NOT NULL,
-  'body' varchar(2000) NOT NULL,
-  FOREIGN KEY("username")
+  'username' varchar(100), -- PRIMARY NOT NULL
+  'body' varchar(2000), -- NOT NULL
+                    -- FOREIGN KEY("username")
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
+-----------------------------------------------------------------
 
-
-CREATE TABLE customersMsgs (
-  'cusName' varchar(50),
-  'email' varchar(200),
-  'msgsNum' varchar(2000)
+-- 2 Tables for Contact us section.
+-- First table, storing:
+-- name, email, and messages counter
+-- Second table, messages content for each customer.
+CREATE TABLE customersMessages (
+  'id' int(4), -- PRIMARY NOT NULL
+  'customerName' varchar(50), -- NOT NULL
+  'email' varchar(200), -- UNIQUE
+  'messagesCount' int (3) -- NOT NULL
+) ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_unicode_ci;
+------
+CREATE TABLE messagesContent (
+  'messageID' int(3), -- PRIMARY NOT NULL
+  'customerID' int(3), -- FOREIGN KEY NOT NULL
+  'messageContent' varchar(2000) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
