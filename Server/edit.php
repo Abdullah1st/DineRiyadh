@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST"){
 if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){}
 else header('location:../html/BackEnd/login.php');
 
-require "db_connection/connect.php";
+require_once "db_connection/connect.php";
 
 if (isset($_POST['editItem'])) {
     $itemName = $_POST["itemName"];
@@ -14,7 +14,7 @@ if (isset($_POST['editItem'])) {
     $itemLogo = $_POST["itemLogo"];
 
     $query = "UPDATE item Set name = '$itemName',
-     description = '$itemDescription', logo = '$itemLogo' ";
+     description = '$itemDescription', logo = '$itemLogo';";
 
     $result = mysqli_query($conn, $query);
     if (!$result)

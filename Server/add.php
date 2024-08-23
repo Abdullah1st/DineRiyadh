@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] != "POST"){
 if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])) {
 } else header('location:../html/frontend/login.php');
 
-require "db_connection/connect.php";
+require_once "db_connection/connect.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $itemName = $_POST["itemName"];
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
 
   //ensure that the name is not exist
-  $query = "SELECT name FROM item WHERE name = '$itemName'";
+  $query = "SELECT name FROM item WHERE name = '$itemName';";
   $result = mysqli_query($conn, $query);
   $isExist = mysqli_num_rows($result) > 0;
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!($isExist )) {
     $inserted_at = date('Y-m-d h:i:s A', time() - (3600 * 4));
     $query = "INSERT INTO item (name, description, logo, inserted_at)
-      VALUES ('$itemName', '$itemDescription', '$itemLogo', '$inserted_at')";
+      VALUES ('$itemName', '$itemDescription', '$itemLogo', '$inserted_at');";
       try {
         $result = mysqli_query($conn, $query);
         echo "
