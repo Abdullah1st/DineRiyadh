@@ -21,16 +21,19 @@ DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 -----------------------------------------------------------------
 CREATE TABLE adminComments (
-  'username' varchar(100), -- PRIMARY NOT NULL
-  'msgsNum' int(3), -- NOT NULL
+  'id' int(3), -- PRIMARY NOT NULL
+  'adminID' int(3), -- FOREIGN KEY NOT NULL
+  'username' varchar(100), -- NOT NULL
+  'messagesCount' int(3), -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 ------
 CREATE TABLE adminCommentsBody (
-  'username' varchar(100), -- PRIMARY NOT NULL
-  'body' varchar(2000), -- NOT NULL
-                    -- FOREIGN KEY("username")
+  'id' int(3), -- PRIMARY NOT NULL
+  'SenderID' int(3), -- FOREIGN KEY NOT NULL
+  'username' varchar(100), -- NOT NULL
+  'body' varchar(2000) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4oDB
 COLLATE=utf8mb4_unicode_ci;
