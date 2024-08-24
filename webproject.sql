@@ -10,6 +10,10 @@ CREATE TABLE administrators (
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
+-- ALTER TABLE `` CHANGE `id` `id` int(3) PRIMARY KEY;
+-- ALTER TABLE `` MODIFY COLUMN `id` int(3) NOT NULL AI;
+-- ALTER TABLE `` MODIFY COLUMN `username` varchar(20) NOT NULL UNIQUE;
+-- ALTER TABLE `` MODIFY COLUMN `password` varchar(64) NOT NULL;
 -----------------------------------------------------------------
 CREATE TABLE resturant (
   'id' int(3), -- PRIMARY NOT NULL
