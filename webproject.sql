@@ -4,36 +4,44 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 CREATE TABLE administrators (
-  'id' int(3), -- PRIMARY NOT NULL
-  'username' varchar(20), -- NOT NULL
-  'password' varchar(64)  -- NOT NULL
+  `id` SMALLINT(3), -- PRIMARY NOT NULL
+  `username` varchar(20), -- NOT NULL
+  `password` varchar(64)  -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
+-- ALTER TABLE `` CHANGE `id` `id` SMALLINT(3) PRIMARY KEY;
+-- ALTER TABLE `` MODIFY COLUMN `id` SMALLINT(3) NOT NULL AI;
+-- ALTER TABLE `` MODIFY COLUMN `username` varchar(20) NOT NULL UNIQUE;
+-- ALTER TABLE `` MODIFY COLUMN `password` varchar(64) NOT NULL;
 -----------------------------------------------------------------
 CREATE TABLE resturant (
-  'id' int(3), -- PRIMARY NOT NULL
-  'name' varchar(100), -- NOT NULL
-  'description' varchar(2000), -- NOT NULL
-  'logo' varchar(2000) -- NOT NULL
+  `id` SMALLINT(3), -- PRIMARY KEY NOT NULL
+  `name` varchar(50), -- NOT NULL UNIQUE
+  `description` varchar(1000), -- NOT NULL
+  `logo` varchar(2000) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 -----------------------------------------------------------------
+-- 2 Tables for admin comment section.
+-- First table, storing:
+-- admin messages counter. [--one row for each admin--]
+-- Second table, messages content for each message. [--one or more rows for each admin--]
 CREATE TABLE adminComments (
-  'id' int(3), -- PRIMARY NOT NULL
-  'adminID' int(3), -- FOREIGN KEY NOT NULL
-  'username' varchar(100), -- NOT NULL
-  'messagesCount' int(3), -- NOT NULL
+  `id` SMALLINT(3), -- PRIMARY NOT NULL
+  `adminID` SMALLINT(3), -- FOREIGN KEY NOT NULL
+  `username` varchar(20), -- NOT NULL
+  `messagesCount` SMALLINT(3), -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 ------
 CREATE TABLE adminCommentsBody (
-  'id' int(3), -- PRIMARY NOT NULL
-  'SenderID' int(3), -- FOREIGN KEY NOT NULL
-  'username' varchar(100), -- NOT NULL
-  'body' varchar(2000) -- NOT NULL
+  `id` SMALLINT(3), -- PRIMARY KEY NOT NULL AI
+  `SenderID` SMALLINT(3), -- FOREIGN KEY NOT NULL
+  --`username` varchar(20), -- NOT NULL ,,  security issues prevention
+  `body` varchar(2000) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4oDB
 COLLATE=utf8mb4_unicode_ci;
@@ -41,22 +49,22 @@ COLLATE=utf8mb4_unicode_ci;
 
 -- 2 Tables for Contact us section.
 -- First table, storing:
--- name, email, and messages counter
+-- name, email, and messages counter.
 -- Second table, messages content for each customer.
 CREATE TABLE customersMessages (
-  'id' int(4), -- PRIMARY NOT NULL
-  'customerName' varchar(50), -- NOT NULL
-  'email' varchar(200), -- UNIQUE
-  'messagesCount' int (3) -- NOT NULL
+  `id` SMALLINT(4), -- PRIMARY KEY NOT NULL AI
+  `customerName` varchar(20), -- NOT NULL
+  `email` varchar(100), -- UNIQUE
+  `messagesCount` SMALLINT(3) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
 ------
 CREATE TABLE messagesContent (
-  'messageID' int(3), -- PRIMARY NOT NULL
-  'customerID' int(3), -- FOREIGN KEY NOT NULL
-  'messageContent' varchar(2000), -- NOT NULL
-  'inserted_at' (23) -- NOT NULL
+  `messageID` SMALLINT(3), -- PRIMARY KEY NOT NULL AI
+  `customerID` SMALLINT(3), -- FOREIGN KEY NOT NULL
+  `messageContent` varchar(2000), -- NOT NULL
+  `inserted_at` varchar(23) -- NOT NULL
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
