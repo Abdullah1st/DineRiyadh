@@ -9,7 +9,6 @@ if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])) {
 
 require_once "db_connection/connect.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $itemName = $_POST["itemName"];
   $itemDescription = $_POST["itemDescription"];
   $itemLogo = $_FILES['itemLogo']['tmp_name'];
@@ -50,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         Error: Item might be exist in the database
         </h1>";
   }
-}
+
 ?>
 
 <!-- back to Admin page after 3 seconds -->
