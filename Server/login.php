@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $query = "SELECT username FROM administrators WHERE 
     username = '$username1' and password = '$password1';";
 
-    //returns a mysqli_result object -> true, OR false in faliure
     $result = mysqli_query($conn, $query);
     if ($result) {
 
