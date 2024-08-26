@@ -27,7 +27,8 @@ $queryOfUser = "INSERT INTO customerMessages (id, customerName, userMail, messag
 VALUES (`id`, `$customerName`, `$userMail`, 1);";
 //                                          |      
 //                                     first message
-$queryOfMsgContent = "binding FK of messagesContent table into id of customerMssages.";
+$queryOfMsgContent = "INSERT INTO messagesContent (messageID, customerID, messageContent, inserted_at) 
+VALUES (`id`, [[[[[ FK ]]]]] , `$userMessage`, `$inserted_at`)";
   try {
     mysqli_query($conn, $queryOfUser);
     mysqli_query($conn, $queryOfMsgContent);
