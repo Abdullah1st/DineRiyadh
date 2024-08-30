@@ -64,7 +64,7 @@ CREATE TABLE messagesContent (
   `messageID` SMALLINT(3), -- PRIMARY KEY NOT NULL AI
   `customerID` SMALLINT(3), -- FOREIGN KEY NOT NULL
   `messageContent` varchar(2000), -- NOT NULL
-  `inserted_at` varchar(23) -- NOT NULL
+   `inserted_at` varchar(23) -- NOT NULL DATETIME DEAFULT CURRENT_TIME
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_unicode_ci;
