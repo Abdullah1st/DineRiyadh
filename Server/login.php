@@ -32,3 +32,4 @@ require_once "db_connection/connect.php";
         } else header("location:../html/FrontEnd/login.php");
         
     } else header("location:../html/FrontEnd/about.html");
+
