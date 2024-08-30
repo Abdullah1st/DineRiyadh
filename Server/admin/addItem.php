@@ -1,13 +1,13 @@
 <?php
 //any connection without login form should forwarded to the form
 if ($_SERVER['REQUEST_METHOD'] != "POST"){
-    header('location:../html/frontend/login.php');
+    header('location:../../html/ui/admin/login.php');
 }
 
 if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])) {
-} else header('location:../html/frontend/login.php');
+} else header('location:../../html/ui/admin/login.php');
 
-require_once "db_connection/connect.php";
+require_once "../db_connection/connect.php";
 
   $itemName = $_POST["itemName"];
   $itemDescription = $_POST["itemDescription"];

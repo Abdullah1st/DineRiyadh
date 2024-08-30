@@ -1,13 +1,13 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] != "POST"){
-    header('location:../html/frontend/login.php');
+  header('location:../../html/ui/admin/login.php');
 }
 
 if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){}
-else header('location:../html/BackEnd/login.php');
+else header('location:../../html/ui/admin/login.php');
 
-require_once "db_connection/connect.php";
+require_once "../db_connection/connect.php";
 
 
 $userName = $_POST["userName"];

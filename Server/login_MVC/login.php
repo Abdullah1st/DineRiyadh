@@ -15,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 }
 else {
-    header('location:../html/frontend/login.php');
+    header('location:../../html/ui/admin/login.php');
     die();
 }
 
-require_once "db_connection/connect.php";
+require_once "../db_connection/connect.php";
 
 
 
