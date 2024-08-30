@@ -57,7 +57,7 @@ else header('location:../login.php');
 
     <footer>
       <p>
-				&copy; 2024 / IMAMU / CCIS / IT390 <sup>TM</sup>
+				&copy; 2024 / IMAMU / CCIS <sup>TM</sup>
       </p>
       <button onclick="toTop()">
         <span class="box upButton">
