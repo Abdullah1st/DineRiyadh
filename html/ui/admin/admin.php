@@ -1,7 +1,7 @@
 <?php
-if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])) {
-} else header('location:login.php');
-
+if (!$_COOKIE["userNAME"]) { //test purpose
+	require '../../../Server/login_MVC/login.php';
+}
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	require "../../../Server/db_connection/connect.php";
 
@@ -13,8 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$result = mysqli_query($conn, $query);
 
 	$commentSent = 1;
-} 
-	else $commentSent = 0;
+} else $commentSent = 0;
 
 ?>
 
@@ -32,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	<header id="top">
 		<a href="../index.html" id="logo">
 			<img src="../../../logo/Dine RiyadhLogo white.png" />
-			
 		</a>
 		<nav>
 			<ul id="user">
@@ -69,21 +67,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 					</div>
 					<?php // ../../server/Add.php 
 					?>
-					
+
 					<form method="post" action="admin.php">
 						<div id="comment">
 							<h3>Admin comments:</h3>
 
 							<textarea name="body" required placeholder="any complaint" cols=50 rows=10></textarea>
 							<div class="flex">
-							<input class="enter" type="submit" value="Send">
-							<p style="margin-left:100px;">
-							<?php
-							if ($commentSent) {
-								echo "<h2>Thanks, your comment has been sent</h2>";
-							}
-							?>
-							</p>
+								<input class="enter" type="submit" value="Send">
+								<p style="margin-left:100px;">
+									<?php
+									if ($commentSent) {
+										echo "<h2>Thanks, your comment has been sent</h2>";
+									}
+									?>
+								</p>
 							</div>
 						</div>
 					</form>

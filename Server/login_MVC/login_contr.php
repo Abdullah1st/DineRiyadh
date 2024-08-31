@@ -12,6 +12,10 @@ function isEmpty(string $username, string $password):bool {
     else return false;
 }
 
-function isUserValid(bool|array $user):bool{
-    return $user;
+function isUsernameValid(null|array $user):bool{
+    return $user == true;
+}
+
+function isPasswordValid(string $password, array $user):bool{
+    return $user["password"] === $password;
 }

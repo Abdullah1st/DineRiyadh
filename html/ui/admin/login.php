@@ -1,5 +1,5 @@
 <?php
-if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){
+if ($_COOKIE['userNAME']){
   header("location:admin.php");
 }
 ?>
@@ -45,17 +45,17 @@ if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){
     <section id="section">
       <div id="content">
         <div class="container">
-          <form action="../../../Server/login.php" method="post">
+          <form action="../../../Server/login_MVC/login.php" method="post">
             <div class="card">
               <h1 class="login">Log in</h1>
 
               <div class="inputBox">
-                <input type="text" name="username" required autocomplete="on">
+                <input type="text" name="username" autocomplete="on">
                 <span class="user">Username</span>
               </div>
 
               <div class="inputBox">
-                <input type="password" name="password" required>
+                <input type="password" name="password">
                 <span>Password</span>
               </div>
 
