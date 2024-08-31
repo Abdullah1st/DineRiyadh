@@ -1,3 +1,25 @@
 <?php
+//  MODEL:
 //  Qureying into database ( sensitive file ).
-//  Taking inputs from controller file not from the user directly
+//  Taking inputs from controller file not from the user directly.
+
+//  Type declaration:
+//  not mantadory, it is type declaration for preventing more errors from
+//  happening such as entering wrong type of data.
+declare(strict_types= 1);
+
+function getUser(mysqli $connection, string $username){
+    $query = sprintf("SELECT * FROM administrators
+                     WHERE username= '%s';",
+                     $connection->real_escape_string($username));
+
+    $result = $connection->query($query);
+    $user = $result->fetch_assoc();
+    // $statement = $connection->prepare($query);
+    // $statement->bind_param(":username", $username);
+    // $statement->execute();
+
+    // $result = $statement->fetch(mysqli_fetch_row($statement));
+
+    return $user;
+}
