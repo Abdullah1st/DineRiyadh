@@ -1,6 +1,6 @@
 <?php
-if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){}
-else header('location:../login.php');
+if ($_COOKIE['userNAME']) {
+} else header('location:../login.php');
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -35,15 +35,15 @@ else header('location:../login.php');
         <div id="editItems">
           <h2>Edit Item</h2>
           <!-- Edit item form -->
-          <form action="../../../../Server/edit.php" method="post">
+          <form action="../../../../Server/admin_contr/editItem.php" method="post" enctype="multipart/form-data">
             <label for="itemSelect">Select an item to edit:</label>
-            <select id="itemSelect" name="itemSelect" required>
-              <option value="CHI-SPACC">CHI-SPACC</option>
+            <select id="itemSelect" name="selectedItem" required>
+              <option value="Spacca">CHI-SPACC</option>
               <option value="Bianca">Bianca</option>
               <option value="SCOTTS">SCOTT'S</option>
               <option value="Gymkhana">Gymkhana</option>
-              <option value="Raoul's">Raoul's</option>
-              <option value="LA-Rustica">LA-Rustica</option>
+              <option value="Raouls">Raoul's</option>
+              <option value="Larustica">LA-Rustica</option>
             </select>
 
             <label for="itemName">Item Name:</label>
@@ -53,7 +53,7 @@ else header('location:../login.php');
             <textarea id="itemDescription" name="itemDescription" rows="4" required></textarea>
 
             <label for="itemLogo">Item Logo URL:</label>
-            <input type="url" id="itemLogo" name="itemLogo" required>
+            <input type="file" name="itemLogo" required>
 
             <input class="submit" type="submit" name="editItem" value="Edit">
           </form>
@@ -63,7 +63,7 @@ else header('location:../login.php');
     <br>
     <footer>
       <p>
-				&copy; 2024 / IMAMU / CCIS <sup>TM</sup>
+        &copy; 2024 / IMAMU / CCIS <sup>TM</sup>
       </p>
       <button onclick="toTop()">
         <span class="box upButton">

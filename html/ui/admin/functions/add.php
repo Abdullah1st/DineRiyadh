@@ -1,5 +1,5 @@
 <?php
-if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){}
+if ($_COOKIE['userNAME']){}
 else header('location:../login.php');
 ?>
 <!DOCTYPE HTML>
@@ -21,7 +21,7 @@ else header('location:../login.php');
         <li><a href="../../index.html">Home</a></li>
         <li><a href="../../welcome.html">Welcome</a></li>
         <li><a href="../../about.html">About Us</a></li>
-        <li><a href="../../Contact.html">Contact Us</a></li>
+        <li><a href="../../contact.html">Contact Us</a></li>
       </ul>
       <ul id="admin">
         <li><a class="selected" href="../admin.php">Admin Control</a></li>
@@ -36,7 +36,7 @@ else header('location:../login.php');
           <h2>Here you can insert the item's name, description, and logo</h2>
 
           <!-- Add item form -->
-          <form method="post" action="../../../../Server/add.php" enctype="multipart/form-data">
+          <form method="post" action="../../../../Server/admin_contr/addItem.php" enctype="multipart/form-data">
             <label for="itemName">Item Name:</label>
             <input type="text" name="itemName" required>
             

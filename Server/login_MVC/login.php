@@ -1,14 +1,14 @@
 <?php
 // Ensuring legemitly access.
 if ($_SERVER['REQUEST_METHOD'] === "POST"){
-
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    require_once '../db_connection/connect.php';
+    // sql injection avoidance
+    $username = mysqli_real_escape_string($conn, $_POST["username"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
     $password = hash('md5', $password, false);
 
     try {
         // order is important as is below.
-        require_once '../db_connection/connect.php';
         require_once 'login_model.php';
         require_once 'login_contr.php';
         

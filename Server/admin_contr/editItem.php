@@ -1,23 +1,24 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] != "POST"){
+if ($_SERVER['REQUEST_METHOD'] != "POST") {
     header('location:../../html/ui/admin/login.php');
 }
 
-if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){}
-else header('location:../../html/ui/admin/login.php');
-
 require_once "../db_connection/connect.php";
-
+include "encodeImg.php";
 if (isset($_POST['editItem'])) {
     $itemName = $_POST["itemName"];
     $itemDescription = $_POST["itemDescription"];
-    $itemLogo = $_POST["itemLogo"];
+    $encodedLogo = encode_logo($_FILES['itemLogo']['tmp_name'], $conn);
+    $selected_item = $_POST['selectedItem'];
 
-    $query = "UPDATE item Set name = '$itemName',
-     description = '$itemDescription', logo = '$itemLogo';";
+    $query = "UPDATE resturant SET name = '$itemName',
+     description = '$itemDescription', logo = '$encodedLogo'
+     WHERE name = '$selected_item';";
 
     $result = mysqli_query($conn, $query);
-    if (!$result)
+    if (!$result) {
         echo "Error: " . mysqli_error($conn);
-    die();
+        die();
+    }
+    header("location:../../html/ui/index.html");
 }

@@ -181,16 +181,16 @@ header {
   margin-bottom: 10px;
   box-shadow: 10px 8px 50px rgb(211, 211, 211);
 
-  .logo {
+  .restLogo{
     flex-basis: 55%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 75%;
     background-position-y: center;
+    background-position-x: center;
   }
 
   .description {
     box-shadow: 10px 5px 15px rgb(218, 216, 216);
-    flex-basis: 42%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -218,46 +218,6 @@ header {
   box-shadow: 10px 8px 50px rgb(168, 168, 168);
   transform: scale(1.1);
 }
-
-/* resturant one, two, three, four, five, six */
-#resturants {
-  .one {
-    .logo {
-      background-image: url('../resturants/rsetaurant1/Bianca-Logo.png.webp');
-    }
-  }
-
-  .two {
-    .logo {
-      background-image: url('../resturants/rsetaurant2/Scotts-Logo.png.webp');
-    }
-  }
-
-  .three {
-    .logo {
-      background-image: url('../resturants/rsetaurant3/LOGO.png');
-    }
-  }
-
-  .four {
-    .logo {
-      background-image: url('../resturants/rsetaurant4/Gymkhana-Logo.png.webp');
-    }
-  }
-
-  .five {
-    .logo {
-      background-image: url('../resturants/rsetaurant5/Raouls-1-Logo.png.webp');
-    }
-  }
-
-  .six {
-    .logo {
-      background-image: url('../resturants/rsetaurant6/Larustica-Logo.png');
-    }
-  }
-}
-
 
 /*     Contact, About, Welcome, Admin control      */
 

@@ -58,10 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 					<div>
 						<ul>
-							<li id="add"><i class="fa-solid fa-plus"></i><a href="add.php">Add resturant</a></li>
+							<li id="add"><i class="fa-solid fa-plus"></i><a href="functions/add.php">Add resturant</a></li>
 							<div>
-								<li id="delete"><i class="fa-solid fa-xmark"></i><a href="delete.php">Delete resturant</a></li>
-								<li id="edit"><i class="fa-regular fa-pen-to-square"></i><a href="edit.php">Edit resturant</a></li>
+								<li id="delete"><i class="fa-solid fa-xmark"></i><a href="functions/delete.php">Delete resturant</a></li>
+								<li id="edit"><i class="fa-regular fa-pen-to-square"></i><a href="functions/edit.php">Edit resturant</a></li>
 							</div>
 						</ul>
 					</div>

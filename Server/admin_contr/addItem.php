@@ -1,34 +1,31 @@
 <?php
-//any connection without login form should forwarded to the form
+//any non-post request should be forwarded to the form
 if ($_SERVER['REQUEST_METHOD'] != "POST"){
     header('location:../../html/ui/admin/login.php');
 }
 
-if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])) {
+if ($_COOKIE['userNAME']) {
 } else header('location:../../html/ui/admin/login.php');
 
 require_once "../db_connection/connect.php";
-
+include "encodeImg.php";
   $itemName = $_POST["itemName"];
   $itemDescription = $_POST["itemDescription"];
-  $itemLogo = $_FILES['itemLogo']['tmp_name'];
-  //encode image
-  $itemLogo = file_get_contents($itemLogo);
-  $itemLogo = $conn->real_escape_string($itemLogo);
+  $encodedLogo = encode_logo($_FILES['itemLogo']['tmp_name'], $conn);
   
 
   //ensure that the name is not exist
-  $query = "SELECT name FROM item WHERE name = '$itemName';";
+  $query = "SELECT name FROM resturant WHERE name = '$itemName';";
   $result = mysqli_query($conn, $query);
   $isExist = mysqli_num_rows($result) > 0;
 
 
 
-  //if not exist, inject the item
+  //if not exist, insert the item
   if (!($isExist )) {
     $inserted_at = date('Y-m-d h:i:s A', time() - (3600 * 4));
-    $query = "INSERT INTO item (name, description, logo, inserted_at)
-      VALUES ('$itemName', '$itemDescription', '$itemLogo', '$inserted_at');";
+    $query = "INSERT INTO resturant (id, name, description, logo, inserted_at)
+      VALUES (id, '$itemName', '$itemDescription', '$encodedLogo', CURRENT_TIMESTAMP);";
       try {
         $result = mysqli_query($conn, $query);
         echo "
@@ -55,6 +52,6 @@ require_once "../db_connection/connect.php";
 <!-- back to Admin page after 3 seconds -->
 <script>
   setTimeout(() => {
-    this.open("../html/frontend/Add.php", "_self")
+    this.open("../../html/ui/admin/functions/add.php", "_self")
   }, 5000);
 </script>

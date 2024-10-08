@@ -1,5 +1,5 @@
 <?php
-if (($_COOKIE['userNAME'] and $_COOKIE['userPASS'])){}
+if (($_COOKIE['userNAME'])){}
 else header('location:../login.php');
 ?>
 <!DOCTYPE HTML>
